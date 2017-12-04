@@ -13,14 +13,14 @@
 </head>
 <body>
 
-	<FORM method="get" action="/SpringMVC/client/sendrequest">
+	<FORM method="get" action="/AutoParking/client/sendrequest">
 		<div class="container">
 			<div class="starter-template">
-				<h1>Parking Slot</h1>
+				<h1>Parking Slot Booking</h1>
 			</div>
 			<BR>
-			<BR>Email Address: <INPUT TYPE="TEXT" NAME="requestURI" placeholder="URI" size="50">
-			<BR>Password: <INPUT TYPE="TEXT" NAME="requestURI" placeholder="URI" size="50">
+			<BR>Email Address: <INPUT TYPE="TEXT" NAME="emailAddress" placeholder="URI" size="50">
+			<BR>Password: <INPUT TYPE="TEXT" NAME="password" placeholder="URI" size="50">
 			
 			<BR>
 			<BR>
