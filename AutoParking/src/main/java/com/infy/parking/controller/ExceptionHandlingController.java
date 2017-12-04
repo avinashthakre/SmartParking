@@ -1,4 +1,4 @@
-package com.sample.common.controller;
+package com.infy.parking.controller;
 
 import java.util.Date;
 

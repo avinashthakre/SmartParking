@@ -1,4 +1,4 @@
-package com.sample.common.controller;
+package com.infy.parking.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -18,7 +18,7 @@ public class SendRequestController {
 		return "Home";
 	}
 
-	@RequestMapping(value = "/sendrequest", method = RequestMethod.GET)
+	@RequestMapping(value = "/sendrequest", method = RequestMethod.GET )
 	public String sendRequest(HttpServletRequest request, Model model) {
 		
 		model.addAttribute("message","Please wait, parking slot is getting book...");
