@@ -1,5 +1,9 @@
 package com.infy.parking.dao;
 
-public interface SlotsDao {
+import com.infy.parking.models.UserDetails;
 
+public interface SlotsDao {
+	public void save(UserDetails user);
+	
+	
 }

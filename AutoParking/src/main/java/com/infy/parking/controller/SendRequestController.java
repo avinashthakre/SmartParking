@@ -21,6 +21,8 @@ public class SendRequestController {
 	@RequestMapping(value = "/sendrequest", method = RequestMethod.GET )
 	public String sendRequest(HttpServletRequest request, Model model) {
 		
+		
+		
 		model.addAttribute("message","Please wait, parking slot is getting book...");
 		return "list";
 	}
