@@ -22,6 +22,50 @@
 			<value>.jsp</value>
 		</property>
 	</bean>
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+		<property name="url" value="jdbc:oracle:thin:@10.191.130.196:1521:XE" />
+		<property name="username" value="system" />
+		<property name="password" value="oracle" />
+	</bean>
+	
+
+	<!-- Hibernate 3 XML SessionFactory Bean definition -->
+	<!-- <bean id="hibernate3SessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean"> 
+		<property name="dataSource" ref="dataSource" /> <property name="mappingResources"> 
+		<list> <value>person.hbm.xml</value> </list> </property> <property name="hibernateProperties"> 
+		<value> hibernate.dialect=org.hibernate.dialect.MySQLDialect </value> </property> 
+		</bean> -->
+
+	<!-- Hibernate 3 Annotation SessionFactory Bean definition -->
+	<bean id="hibernate3AnnotatedSessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="annotatedClasses">
+			<list>
+				<value>com.infy.parking.models.UserDetails</value>
+				<value>com.infy.parking.models.BuildingDetails</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
+				<prop key="hibernate.current_session_context_class">thread</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.default_schema">SYSTEM</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean id="buildingDAO" class="com.infy.parking.daoimpl.BuildingDaoImpl">
+		<property name="sessionFactory" ref="hibernate3AnnotatedSessionFactory" />
+	</bean>
+	<bean id="buildingDetails" class="com.infy.parking.models.BuildingDetails"></bean>
+	<!-- <bean id="buildingService" class="com.infy.parking.service.Buildingservice"></bean> -->
+	<bean id="buildingService" class="com.infy.parking.serviceimpl.BuildingServiceImpl"></bean>
+	<!-- <bean id="controller" class="com.infy.parking.controller.SendRequestController"></bean> -->
 
 </beans>
 
