@@ -5,7 +5,6 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -16,9 +15,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.infy.parking.models.BuildingDetails;
 import com.infy.parking.models.SlotDetails;
+import com.infy.parking.models.UserDetails;
 import com.infy.parking.service.Buildingservice;
 import com.infy.parking.service.SlotsService;
-
+import com.infy.parking.service.UserService;
 
 
 @Controller
@@ -34,9 +34,10 @@ public class SendRequestController {
 	private SlotDetails slotDetails;
 	@Autowired
 	private SlotsService slotsService;
-
-
-
+	@Autowired
+	private UserDetails userDetails;
+	@Autowired
+	private UserService userService;
 
 	@RequestMapping(value = "/getClient", method = RequestMethod.GET)
 	public String getClient(ModelMap model) {
@@ -126,6 +127,42 @@ public class SendRequestController {
 			}
 		}
 		return "addSlot";
+	}
+	
+	@RequestMapping(value = "/getRegistration", method = RequestMethod.GET)
+	public String getRegistration(ModelMap model) {
+		System.out.println("Invoking REST Client for Registration Page ...");
+		return "Registration";
+	}
+
+	@RequestMapping(value = "/validateRegistration", method = RequestMethod.GET)
+	public String validateRegistration(HttpServletRequest request, Model model) {
+		String errorMessage = request.getParameter("error");
+		String empId = request.getParameter("empId");
+		String email = request.getParameter("emailAddress");
+		String password = request.getParameter("password");
+		System.out.println("Email : " + email);
+		System.out.println("password : " + password);		
+		System.out.println("Error Message : '" + errorMessage+"'");
+
+		if (errorMessage == null) {
+			try {
+			System.out.println("User Service : "+userService);
+			
+			userDetails.setEmail(email);
+			userDetails.setEmployeeId(Integer.valueOf(empId));
+			userDetails.setPassword(password);
+			System.out.println(userDetails.toString());
+			userService.persistUsersDetails(userDetails);
+			System.out.println("Person::" + userDetails);
+			model.addAttribute("message", "Hi " + email + ", you have entered password as " + password);
+			} catch (Exception e) {
+				e.getStackTrace();
+				System.out.println(e.getStackTrace());
+			}			
+			return "list";
+		}
+		return "Registration";		
 	}
 
 

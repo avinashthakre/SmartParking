@@ -65,12 +65,19 @@
 	</bean>
 	<bean id="buildingDetails" class="com.infy.parking.models.BuildingDetails"></bean>
 	<bean id="buildingService" class="com.infy.parking.serviceimpl.BuildingServiceImpl"></bean>
-	<!--Slot  -->
+	<!--  Slot  -->
 	<bean id="slotDAO" class="com.infy.parking.daoimpl.SlotsDaoImpl">
 		<property name="sessionFactory" ref="hibernate3AnnotatedSessionFactory" />
 	</bean>
 	<bean id="slotDetails" class="com.infy.parking.models.SlotDetails"></bean>
 	<bean id="slotsService" class="com.infy.parking.serviceimpl.SlotsServiceImpl"></bean>
+	
+	<!--  Users  -->
+	<bean id="userDetails" class="com.infy.parking.models.UserDetails"></bean>
+	<bean id="userService" class="com.infy.parking.serviceimpl.UserServiceImpl"></bean>
+	<bean id="userDAO" class="com.infy.parking.daoimpl.UserDaoImpl">
+		<property name="sessionFactory" ref="hibernate3AnnotatedSessionFactory" />
+	</bean>
 
 </beans>
 
