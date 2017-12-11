@@ -87,7 +87,8 @@
 					<td>Re-Enter Password:</td>
 					<td><INPUT TYPE="password" NAME="repassword" placeholder=""
 						onclick="onClick()" onblur="validatePassword(this.value)"
-						size="25"></td>
+						size="25">
+					</td>
 				</tr>
 				<tr>
 					<td></td>

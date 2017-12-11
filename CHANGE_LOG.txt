@@ -2,3 +2,4 @@
 
 # 07/12/2017  Added functionality of addBuilding    -Amrut Bugde
 # 12/7/2017   Added Change Log						-Avinash Thakre
+# 12/11/2017  Adding User Registration Code Changes	-Vinayak Adimulam	

@@ -155,7 +155,7 @@ public class SendRequestController {
 			System.out.println(userDetails.toString());
 			userService.persistUsersDetails(userDetails);
 			System.out.println("Person::" + userDetails);
-			model.addAttribute("message", "Hi " + email + ", you have entered password as " + password);
+			model.addAttribute("message", "Hi " + email + " , you have entered password as " + password);
 			} catch (Exception e) {
 				e.getStackTrace();
 				System.out.println(e.getStackTrace());

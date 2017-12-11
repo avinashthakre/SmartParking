@@ -43,5 +43,6 @@
 
 	<bean id="slotDAO" class="com.infy.parking.daoimpl.SlotsDaoImpl">
 		<property name="sessionFactory" ref="hibernate3AnnotatedSessionFactory" />
+		
 	</bean>
 </beans>

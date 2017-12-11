@@ -78,6 +78,7 @@
 	<bean id="userDAO" class="com.infy.parking.daoimpl.UserDaoImpl">
 		<property name="sessionFactory" ref="hibernate3AnnotatedSessionFactory" />
 	</bean>
+	
 
 </beans>
 
