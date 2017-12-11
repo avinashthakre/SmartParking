@@ -19,6 +19,8 @@ import com.infy.parking.models.UserDetails;
 import com.infy.parking.service.Buildingservice;
 import com.infy.parking.service.SlotsService;
 import com.infy.parking.service.UserService;
+import com.infy.parking.utilities.CSVReader;
+
 
 
 @Controller
@@ -100,11 +102,19 @@ public class SendRequestController {
 
 	//for add slot persist
 	@RequestMapping(value = "/addSlotRequest", method = RequestMethod.POST)
-	public String addSlotRequest(ModelMap model,@RequestParam("buildingId") String bId,@RequestParam("floorId") String fId,
-			@RequestParam("slotId") String slotId,@RequestParam("fileName") MultipartFile file) {
+	public String addSlotRequest(ModelMap model,@RequestParam(value="buildingId", defaultValue = "MLPL1") String bId,@RequestParam(value="floorId", defaultValue = "F00") String fId,
+			@RequestParam(value="slotId", defaultValue = "anonymous") String slotId,@RequestParam(value="slotFile", required=false) MultipartFile file) {
 
-		if(file!=null) {
+		if(file!=null ) {
 			System.out.println("file name "+file.getName());
+			CSVReader csvReader =new CSVReader();
+			List<SlotDetails> list =csvReader.readSlotDetails(file);
+			try {
+				slotsService.persistSlotsDetailsList(list);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		else {
 			System.out.println("buildingId "+bId);

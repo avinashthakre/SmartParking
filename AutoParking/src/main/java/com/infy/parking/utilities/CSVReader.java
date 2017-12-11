@@ -1,5 +1,7 @@
 package com.infy.parking.utilities;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -8,6 +10,7 @@ import java.util.List;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.infy.parking.models.SlotDetails;
 
@@ -16,7 +19,7 @@ public class CSVReader {
 	//CSV file header
 	private static final String [] FILE_HEADER_MAPPING = {"buildingId","slotId"};
 
-	public static List<SlotDetails> readSlotDetails(String fileName) {
+	public static List<SlotDetails> readSlotDetails(MultipartFile  mFile) {
 
 		FileReader fileReader = null;
 
@@ -30,7 +33,10 @@ public class CSVReader {
 
 		try {
 			//initialize FileReader object
-			fileReader = new FileReader(fileName);
+			File file = new File(mFile.getOriginalFilename());
+			mFile.transferTo(file);
+			
+			fileReader = new FileReader(file);
 
 			//initialize CSVParser object
 			csvFileParser = new CSVParser(fileReader, csvFileFormat);
@@ -43,8 +49,10 @@ public class CSVReader {
 				CSVRecord record = (CSVRecord) csvRecords.get(i);
 				//Create a new student object and fill his data
 				SlotDetails slot = new SlotDetails();
-				slot.setBuildingId(record.get("BUILDING_ID"));
-				slot.setBuildingId(record.get("SLOT_ID"));
+				slot.setBuildingId(record.get("buildingId"));
+				slot.setSlotId(record.get("slotId"));
+				System.out.println(record.get("buildingId"));
+				System.out.println(record.get("slotId"));
 				slots.add(slot);	
 			}
 		} 

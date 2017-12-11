@@ -9,15 +9,16 @@
 </head>
 <body>
 	<center>
-		<FORM method="post" action="/AutoParking/client/addSlotRequest"   enctype="multipart/form-data">
+		<FORM method="post" action="/AutoParking/client/addSlotRequest" enctype="multipart/form-data">
 			<div class="container">
 				<div class="starter-template">
 					<h1>Add Slot</h1>
 				</div>
 				<div>
-					<input type="radio" name="submitType" value="single" onclick="hideShow()"
-						checked> Single Submit<br> 
-						<input type="radio"	name="submitType"  onclick="hideShow()" value="bulk"> bulk Submit<br>
+					<input type="radio" name="submitType" value="single"
+						onclick="hideShow()" checked> Single Submit<br> <input
+						type="radio" name="submitType" onclick="hideShow()" value="bulk">
+					bulk Submit<br>
 				</div>
 				<div id="SingleSubmitForm">
 					<BR> <BR> Building Id:
@@ -38,13 +39,19 @@
 						<option value="F09">9th Floor</option>
 					</select> <BR> <BR> Slot Id: <INPUT TYPE="TEXT" NAME="slotId"
 						placeholder="9999" size="4">
+						<BR> <BR> <INPUT TYPE="SUBMIT" value="Submit"><BR>
 				</div>
-				<div id="BulkSubmitForm">
-					<input type="file" name="slotFile" accept=".csv">
-				</div>
-				<BR> <BR> <INPUT TYPE="SUBMIT" value="Submit"><BR>
+				
+				
 			</div>
 		</FORM>
+		<div id="BulkSubmitForm" style="display: none">
+			<FORM method="post" action="/AutoParking/client/addSlotRequest"
+				enctype="multipart/form-data">
+				<input type="file" name="slotFile" accept=".csv">
+				<BR> <BR> <INPUT TYPE="SUBMIT" value="Submit"><BR>
+			</FORM>
+		</div>
 		<!-- /.container -->
 		<div>${message}</div>
 	</center>
@@ -54,16 +61,16 @@
 		src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 <script type="text/javascript">
-function hideShow() {
-    var x = document.getElementById("SingleSubmitForm");
-    var y = document.getElementById("BulkSubmitForm");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-        y.style.display = "none";
-    } else {
-        x.style.display = "none";
-        y.style.display = "block";
-    }
-}
+	function hideShow() {
+		var x = document.getElementById("SingleSubmitForm");
+		var y = document.getElementById("BulkSubmitForm");
+		if (x.style.display === "none") {
+			x.style.display = "block";
+			y.style.display = "none";
+		} else {
+			x.style.display = "none";
+			y.style.display = "block";
+		}
+	}
 </script>
 </html>

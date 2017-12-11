@@ -1,5 +1,7 @@
 package com.infy.parking.daoimpl;
 
+import java.util.List;
+
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.classic.Session;
@@ -32,6 +34,22 @@ public class SlotsDaoImpl implements SlotsDao {
 		}
 	}
 
+	@Override
+	public void saveList(List<SlotDetails> slotDetails)throws Exception {
+		try {
+			Session session = this.sessionFactory.openSession();
+			Transaction tx = session.beginTransaction();
+			for(SlotDetails slot : slotDetails) {
+				session.persist(slot);
+			}
+			tx.commit();
+			session.close();
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}
+	}
 	@Override
 	public void update(SlotDetails slotDetails)throws Exception {
 		// TODO Auto-generated method stub

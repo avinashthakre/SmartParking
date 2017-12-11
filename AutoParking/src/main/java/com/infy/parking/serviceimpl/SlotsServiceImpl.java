@@ -1,5 +1,7 @@
 package com.infy.parking.serviceimpl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.infy.parking.dao.SlotsDao;
@@ -14,6 +16,17 @@ public class SlotsServiceImpl implements SlotsService {
 	public void persistSlotsDetails(SlotDetails slotDetails)throws Exception {
 		try {
 			slotDao.save(slotDetails);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}
+
+	}
+	@Override
+	public void persistSlotsDetailsList(List<SlotDetails> slotDetails) throws Exception {
+		try {
+			slotDao.saveList(slotDetails);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
