@@ -46,6 +46,7 @@
 			<list>
 				<value>com.infy.parking.models.UserDetails</value>
 				<value>com.infy.parking.models.BuildingDetails</value>
+				<value>com.infy.parking.models.SlotDetails</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
@@ -63,9 +64,13 @@
 		<property name="sessionFactory" ref="hibernate3AnnotatedSessionFactory" />
 	</bean>
 	<bean id="buildingDetails" class="com.infy.parking.models.BuildingDetails"></bean>
-	<!-- <bean id="buildingService" class="com.infy.parking.service.Buildingservice"></bean> -->
 	<bean id="buildingService" class="com.infy.parking.serviceimpl.BuildingServiceImpl"></bean>
-	<!-- <bean id="controller" class="com.infy.parking.controller.SendRequestController"></bean> -->
+	<!--Slot  -->
+	<bean id="slotDAO" class="com.infy.parking.daoimpl.SlotsDaoImpl">
+		<property name="sessionFactory" ref="hibernate3AnnotatedSessionFactory" />
+	</bean>
+	<bean id="slotDetails" class="com.infy.parking.models.SlotDetails"></bean>
+	<bean id="slotsService" class="com.infy.parking.serviceimpl.SlotsServiceImpl"></bean>
 
 </beans>
 

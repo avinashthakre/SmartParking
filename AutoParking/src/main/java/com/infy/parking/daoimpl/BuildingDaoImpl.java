@@ -50,9 +50,9 @@ public class BuildingDaoImpl implements BuildingDao {
 	@Override
 	public List<BuildingDetails> getBuildingDetails() {
 		Session session = this.sessionFactory.openSession();
-		List<BuildingDetails> personList = session.createQuery("from Person").list();
+		List<BuildingDetails> buildingList = session.createQuery("from BuildingDetails").list();
 		session.close();
-		return personList;
+		return buildingList;
 
 	}
 
