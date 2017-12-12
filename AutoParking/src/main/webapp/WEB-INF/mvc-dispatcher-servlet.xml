@@ -12,7 +12,7 @@
 	<context:component-scan base-package="com.infy.parking.controller" />
 
 	<mvc:annotation-driven />
-
+	
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix">
@@ -29,7 +29,7 @@
 		<property name="username" value="system" />
 		<property name="password" value="oracle" />
 	</bean>
-	
+
 
 	<!-- Hibernate 3 XML SessionFactory Bean definition -->
 	<!-- <bean id="hibernate3SessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean"> 
@@ -47,6 +47,7 @@
 				<value>com.infy.parking.models.UserDetails</value>
 				<value>com.infy.parking.models.BuildingDetails</value>
 				<value>com.infy.parking.models.SlotDetails</value>
+				<value>com.infy.parking.models.AdminDetails</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
@@ -59,26 +60,32 @@
 			</props>
 		</property>
 	</bean>
-	
+
 	<bean id="buildingDAO" class="com.infy.parking.daoimpl.BuildingDaoImpl">
 		<property name="sessionFactory" ref="hibernate3AnnotatedSessionFactory" />
 	</bean>
 	<bean id="buildingDetails" class="com.infy.parking.models.BuildingDetails"></bean>
 	<bean id="buildingService" class="com.infy.parking.serviceimpl.BuildingServiceImpl"></bean>
-	<!--  Slot  -->
+	<!-- Slot -->
 	<bean id="slotDAO" class="com.infy.parking.daoimpl.SlotsDaoImpl">
 		<property name="sessionFactory" ref="hibernate3AnnotatedSessionFactory" />
 	</bean>
 	<bean id="slotDetails" class="com.infy.parking.models.SlotDetails"></bean>
 	<bean id="slotsService" class="com.infy.parking.serviceimpl.SlotsServiceImpl"></bean>
-	
-	<!--  Users  -->
+
+	<!-- Users -->
 	<bean id="userDetails" class="com.infy.parking.models.UserDetails"></bean>
 	<bean id="userService" class="com.infy.parking.serviceimpl.UserServiceImpl"></bean>
 	<bean id="userDAO" class="com.infy.parking.daoimpl.UserDaoImpl">
 		<property name="sessionFactory" ref="hibernate3AnnotatedSessionFactory" />
 	</bean>
-	
+	<!-- admin -->
+	<bean id="adminDAO" class="com.infy.parking.daoimpl.AdminDaoImpl">
+		<property name="sessionFactory" ref="hibernate3AnnotatedSessionFactory" />
+	</bean>
+	<bean id="adminDetails" class="com.infy.parking.models.AdminDetails"></bean>
+	<bean id="adminService" class="com.infy.parking.serviceimpl.AdminServiceImpl"></bean>
+
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="maxUploadSize" value="268435456" />
