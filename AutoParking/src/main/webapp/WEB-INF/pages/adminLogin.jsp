@@ -8,7 +8,7 @@
 </head>
 <body>
 	<center>
-		<FORM method="post" action="/AutoParking/admin/login">
+		<FORM method="post" action="/AutoParking/rest/admin/login">
 			<div class="container">
 				<div class="starter-template">
 					<h1>Administrator Login</h1>

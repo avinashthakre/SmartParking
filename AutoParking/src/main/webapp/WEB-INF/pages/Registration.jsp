@@ -61,7 +61,7 @@
 <body>
 
 	<FORM name="regForm" method="get"
-		action="/AutoParking/client/validateRegistration">
+		action="/AutoParking/rest/admin/validateRegistration">
 		<div class="container">
 			<div class="starter-template">
 				<h1>Smart Parking : User Registration</h1>

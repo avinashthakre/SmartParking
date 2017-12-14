@@ -10,9 +10,9 @@
 	<h3>Welcome to administrator dashboard</h3>
 
 	<div>
-		<span> <a href="../client/addBuilding">Add Building</a></span> 
-		<span> <a href="../client/addSlot">Add Slot</a> </span>
-		<span> <a href="../client/getRegistration">Add User</a></span>
+		<span> <a href="/AutoParking/rest/admin/addBuilding">Add Building</a></span> 
+		<span> <a href="/AutoParking/rest/admin/addSlot">Add Slot</a> </span>
+		<span> <a href="/AutoParking/rest/admin/getRegistration">Add User</a></span>
 	</div>
 </body>
 </html>

@@ -48,6 +48,7 @@
 				<value>com.infy.parking.models.BuildingDetails</value>
 				<value>com.infy.parking.models.SlotDetails</value>
 				<value>com.infy.parking.models.AdminDetails</value>
+				<value>com.infy.parking.models.ReservedSlot</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
@@ -86,6 +87,7 @@
 	<bean id="adminDetails" class="com.infy.parking.models.AdminDetails"></bean>
 	<bean id="adminService" class="com.infy.parking.serviceimpl.AdminServiceImpl"></bean>
 
+<bean id="reservedSlot" class="com.infy.parking.models.ReservedSlot"></bean>
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="maxUploadSize" value="268435456" />

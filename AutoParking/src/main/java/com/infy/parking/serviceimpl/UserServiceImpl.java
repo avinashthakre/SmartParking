@@ -21,4 +21,14 @@ public class UserServiceImpl implements UserService {
 		}
 	}
 
+	@Override
+	public boolean validateUser(UserDetails user) throws Exception {
+		try {
+			return userDao.validateUser(user);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}
+	}
+
 }

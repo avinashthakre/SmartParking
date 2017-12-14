@@ -7,7 +7,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "BUILDING_DETAILS")
-public class BuildingDetails {
+public class BuildingDetails extends StatusDetails{
 
 	@Id
 	@Column(name="BUILDING_ID")
@@ -28,6 +28,11 @@ public class BuildingDetails {
 	public void setBuildingName(String buildingName) {
 		this.buildingName = buildingName;
 	}
+	@Override
+	public String toString() {
+		return "BuildingDetails [buildingId=" + buildingId + ", buildingName=" + buildingName + "]";
+	}
+	
 	
 	
 }

@@ -13,19 +13,19 @@
 </head>
 <body>
 
-	<FORM method="get" action="/SpringMVC/client/sendrequest">
+	<FORM method="post" action="/AutoParking/rest/client/sendrequest">
 		<div class="container">
 			<div class="starter-template">
-				<h1>Parking Slot Booking</h1>
+				<h4>Parking Slot Booking</h4>
 			</div>
 			<BR>
-			<BR>Email Address: <INPUT TYPE="TEXT" NAME="emailAddress" placeholder="email" size="25">
+			<BR>Email Address: <INPUT TYPE="TEXT" NAME="empId" placeholder="Employee ID" size="25">
 			<BR>
 			<BR>Password: <INPUT TYPE="TEXT" NAME="password" placeholder="password" size="25">
 			
 			<BR>
 			<BR>
-			<INPUT TYPE="SUBMIT" value="Submit"><BR>
+			<INPUT TYPE="SUBMIT" value="Confirm Booking"><BR>
 		</div>
 	</FORM>
 	<!-- /.container -->

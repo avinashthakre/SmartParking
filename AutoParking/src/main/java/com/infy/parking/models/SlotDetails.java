@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "SLOTS_DETAILS")
-public class SlotDetails {
+public class SlotDetails extends StatusDetails {
 
 	@Id
 	@Column(name="SLOT_ID")
@@ -19,6 +19,9 @@ public class SlotDetails {
 	@Column(name="BUILDING_ID")
 	private String buildingId;
 
+	@Column(name="RESERVED")
+	private int reserved;
+	
 	public String getSlotId() {
 		return slotId;
 	}
@@ -33,6 +36,19 @@ public class SlotDetails {
 
 	public void setBuildingId(String buildingId) {
 		this.buildingId = buildingId;
+	}
+
+	public int getReserved() {
+		return reserved;
+	}
+
+	public void setReserved(int reserved) {
+		this.reserved = reserved;
+	}
+
+	@Override
+	public String toString() {
+		return "SlotDetails [slotId=" + slotId + ", buildingId=" + buildingId + ", reserved=" + reserved + "]";
 	}
 	
 	

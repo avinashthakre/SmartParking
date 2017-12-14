@@ -1,6 +1,7 @@
 #####==========Smart Parking ============#####
 
-# 07/12/2017  Added functionality of addBuilding    -Amrut Bugde
-# 12/7/2017   Added Change Log						-Avinash Thakre
-# 12/11/2017  Adding User Registration Code Changes	-Vinayak Adimulam	
+# 07/12/2017  Added functionality of addBuilding    - Amrut Bugde
+# 12/7/2017   Added Change Log						- Avinash Thakre
+# 12/11/2017  Adding User Registration Code Changes	- Vinayak Adimulam	
 # 12/11/2017  bulk slot adding functionality		- Amrut Bugde
+# 12/14/2017  added json annotations				- Amrut Bugde

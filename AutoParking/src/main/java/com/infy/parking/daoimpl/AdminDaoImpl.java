@@ -1,19 +1,11 @@
 package com.infy.parking.daoimpl;
 
-import java.util.Base64;
-import java.util.List;
-
-import javax.swing.text.Utilities;
-
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.hibernate.classic.Session;
-import org.hibernate.criterion.Restrictions;
 
 import com.infy.parking.dao.AdminDao;
 import com.infy.parking.models.AdminDetails;
-import com.infy.parking.models.BuildingDetails;
 import com.infy.parking.utilities.Encrypter;
 
 public class AdminDaoImpl implements AdminDao {

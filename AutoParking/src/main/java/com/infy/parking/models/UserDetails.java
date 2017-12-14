@@ -7,7 +7,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "user_details")
-public class UserDetails {
+public class UserDetails extends StatusDetails {
 	@Id
 	@Column(name = "employee_id")
 	private int employeeId;

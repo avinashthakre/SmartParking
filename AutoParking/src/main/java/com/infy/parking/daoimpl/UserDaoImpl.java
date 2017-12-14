@@ -1,5 +1,6 @@
 package com.infy.parking.daoimpl;
 
+import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.classic.Session;
@@ -28,6 +29,40 @@ public class UserDaoImpl implements UserDao {
 			e.printStackTrace();
 			throw e;
 		}
+	}
+
+	@Override
+	public boolean validateUser(UserDetails userDetails) throws Exception {
+		boolean isValid=false;
+		try {
+			Session session = this.sessionFactory.openSession();
+			System.out.println(userDetails.getEmployeeId());
+			System.out.println(userDetails.getPassword());
+			/*Query query = session.createQuery("from UserDetails u where u.employeeId= :empId AND u.password= :pass");
+			query.setParameter("empId", userDetails.getEmployeeId());
+			query.setParameter("pass", userDetails.getPassword());*/
+			Query query = session.createQuery("from UserDetails a where a.employeeId= :empId");
+			query.setParameter("empId", userDetails.getEmployeeId());
+			Object result = query.uniqueResult();
+			UserDetails user=(UserDetails) result;
+			session.close();
+			
+			if(user!=null && userDetails.getPassword().equals(user.getPassword())) {
+				System.out.println(user.getPassword());
+				isValid=true;
+			}
+			else {
+				System.out.println("User is null");
+			}
+
+			/*if(result!=null)
+				isValid=true;*/
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}
+		return isValid;
 	}
 	
 

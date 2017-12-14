@@ -9,7 +9,7 @@
 </head>
 <body>
 	<center>
-		<FORM method="post" action="/AutoParking/client/addSlotRequest" enctype="multipart/form-data">
+		<FORM method="post" action="/AutoParking/rest/admin/addSlotRequest" enctype="multipart/form-data">
 			<div class="container">
 				<div class="starter-template">
 					<h1>Add Slot</h1>
@@ -46,7 +46,7 @@
 			</div>
 		</FORM>
 		<div id="BulkSubmitForm" style="display: none">
-			<FORM method="post" action="/AutoParking/client/addSlotRequest"
+			<FORM method="post" action="/AutoParking/rest/admin/addSlotRequest"
 				enctype="multipart/form-data">
 				<input type="file" name="slotFile" accept=".csv">
 				<BR> <BR> <INPUT TYPE="SUBMIT" value="Submit"><BR>

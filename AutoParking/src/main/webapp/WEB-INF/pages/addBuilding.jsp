@@ -8,7 +8,7 @@
 </head>
 <body>
 	<center>
-		<FORM method="post" action="/AutoParking/client/addBuildingRequest">
+		<FORM method="post" action="/AutoParking/rest/admin/addBuildingRequest">
 			<div class="container">
 				<div class="starter-template">
 					<h1>Add Building</h1>
